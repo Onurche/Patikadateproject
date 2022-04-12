@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			#divimsu {
+				text-align: center;
+				font-size: 35px;
+				font-weight: bold;
+				color: greenyellow;
+				margin: 50px;
+				padding: 50px;
+			}
+			body {
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="divimsu"></div>
+
+		<script>
+			//* Enter Your Username Right Here //*
+			let userName = prompt("Enter your name");
+
+			function checkTime(i) {
+				if (i < 10) {
+					i = "0" + i;
+				}
+				return i;
+			}
+			//* This part shows current time and day  //*
+			function startTime() {
+				var bugün = new Date();
+				var day = bugün.getDay();
+				var daylist = [
+					"Pazar",
+					"Pazartesi",
+					"Salı",
+					"Çarşamba ",
+					"Perşembe",
+					"Cuma",
+					"Cumartesi",
+				];
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById("divimsu").innerHTML =
+					"Merhaba " +
+					userName +
+					" " +
+					h +
+					":" +
+					m +
+					":" +
+					s +
+					" " +
+					daylist[day] +
+					" Tarihinde buradasınız!";
+				t = setTimeout(function () {
+					startTime();
+				}, 500);
+			}
+
+			startTime();
+		</script>
+	</body>
+</html>
